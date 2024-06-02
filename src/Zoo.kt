@@ -1,8 +1,6 @@
 interface Zoo {
-    fun addEmployee()
     fun deleteEmployee()
     fun removeEmployee(employee: Employee)
-    fun addVisitor()
     fun removeVisitor(visitor: Visitor)
     fun getZooStatus()
     fun getEmployeeStatus()
@@ -10,8 +8,6 @@ interface Zoo {
     fun makeAnimalSpeak()
     fun checkAnimalStatus()
     fun editInformation()
-    fun addAnimal()
-    fun addEnclosure()
     fun deleteEnclosure()
     var isPaused: Boolean
     fun updateAnimalStatus()
@@ -21,4 +17,7 @@ interface Zoo {
     fun removeAnimal()
     fun addSpecialVisitor(visitor: Visitor)
     fun addSpecialEmployee(employee: Employee)
+    fun addEntity()
+    fun removeEntity()
+
 }

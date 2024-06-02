@@ -1,1 +1,1 @@
-open class Person(var name: String)
+open class Person(var name: String) : BaseEntity()
