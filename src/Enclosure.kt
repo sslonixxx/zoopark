@@ -7,9 +7,8 @@ interface Enclosure {
     val animals: MutableList<Animal>
     val openPartEnclosure: MutableList<Animal>
     val closePartEnclosure: MutableList<Animal>
-    var foodQuantity: Int
 
-    fun refillFood(quantity: Int)
+    fun refillFood()
     fun moveAnimal(animal: Animal)
     fun getEnclosureStatus()
 }

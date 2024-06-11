@@ -1,7 +1,7 @@
 class Employee(name: String, var position: String) : Person(name) {
-    fun refillFood(enclosure: Enclosure, quantity: Int) {
+    fun refillFood(enclosure: Enclosure) {
         if (position == enclosure.animals[0].species.toLowerCase()) {
-            enclosure.refillFood(quantity)
+            enclosure.refillFood()
             println("Сотрудник $name пополнил запасы еды в вольерах животных ${enclosure.animals[0].species}. Статусы животных обновлены")
         }
     }

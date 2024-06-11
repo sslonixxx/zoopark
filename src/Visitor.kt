@@ -15,15 +15,16 @@ class Visitor(name: String, private val gender: Char, private var money: Int) : 
     fun feedAnimalByVisitor(openPartEnclosure: MutableList<Animal>) {
         if (buyFood(10)) {
             for (animal in openPartEnclosure) {
-                val hungerThreshold = when (animal) {
-                    is Wolf -> Wolf.HUNGER_THRESHOLD
-                    is Parrot -> Parrot.HUNGER_THRESHOLD
-                    is Monkey -> Monkey.HUNGER_THRESHOLD
-                    else -> 10 // Значение по умолчанию
-                }
-                if (animal.hungerLevel<hungerThreshold) {
-                    animal.decreaseHungerLevel(-7)
-                    println("Животное ${animal.species} покормлено посетителем $name")
+                if (animal.hungerLevel<animal.maxHungry) {
+                    val randomNumber = (1..2).random()
+                    if (randomNumber == 1) {
+                        animal.decreaseHungerLevel(-animal.firstFoodType.value)
+                        println("животное ${animal.species} поело еды вида ${animal.firstFoodType.type} от посетителя $name")
+                    }
+                    if (randomNumber==2) {
+                        animal.decreaseHungerLevel(-animal.secondFoodType.value)
+                        println("животное ${animal.species} поело еды вида ${animal.secondFoodType.type} от посетителя $name")
+                    }
                 }
                 else {
                     println("Животное ${animal.species} отказывается от еды")
@@ -36,7 +37,7 @@ class Visitor(name: String, private val gender: Char, private var money: Int) : 
     }
 
     fun getVisitorStatus() {
-        println("Посетитель: $name, Пол: ${getGender()}")
+        println("Посетитель: $name, Пол: ${getGender()} Денег осталось:${money}" )
     }
 
     fun changeName(newName: String) {
